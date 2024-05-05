@@ -4,11 +4,11 @@ class Report < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
 
-  has_many :active_mentions, class_name: 'ReportMention', foreign_key: :mention_to_id, dependent: :destroy, inverse_of: :mention_to
-  has_many :mentioning_reports, through: :active_mentions, source: :mentioned_by
+  has_many :active_mentions, class_name: 'ReportMention', foreign_key: :mentioning_id, dependent: :destroy, inverse_of: :mentioning
+  has_many :mentioning_reports, through: :active_mentions, source: :mentioned
 
-  has_many :passive_mentions, class_name: 'ReportMention', foreign_key: :mentioned_by_id, dependent: :destroy, inverse_of: :mentioned_by
-  has_many :mentioned_reports, through: :passive_mentions, source: :mention_to
+  has_many :passive_mentions, class_name: 'ReportMention', foreign_key: :mentioned_id, dependent: :destroy, inverse_of: :mentioned
+  has_many :mentioned_reports, through: :passive_mentions, source: :mentioning
 
   validates :title, presence: true
   validates :content, presence: true
