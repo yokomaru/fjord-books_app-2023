@@ -1,8 +1,9 @@
 <p style="color: green"><%= notice %></p>
+<div class="show-item">
+  <%= render @book %>
+</div>
 
-<%= render @book %>
-
-<div>
+<nav class="page-nav">
   <%= link_to "Edit this book", edit_book_path(@book) %> |
   <%= link_to "Back to books", books_path %>
 
