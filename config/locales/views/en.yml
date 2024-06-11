@@ -1,11 +1,10 @@
 ja:
-  views:
-    common:
-      title:
-        editing_item: "Editing %{item}"
-      link:
-        new_item: "New %{item}"
-        back_to_items: "Back to %{item}s"
-        show_this_item: "Show This %{item}"
-        edit_this_item: "Edit This %{item}"
-        destroy_this_item: "Destroy This %{item}"
+  common:
+    title:
+      edit: "Editing %{model}"
+    link:
+      new: "New %{model}"
+      back: "Back to %{model}s"
+      show: "Show This %{model}"
+      edit: "Edit This %{model}"
+      destroy: "Destroy This %{model}"
