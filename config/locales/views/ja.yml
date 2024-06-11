@@ -1,0 +1,11 @@
+ja:
+  views:
+    common:
+      title:
+        editing_item: "%{item}の編集"
+      link:
+        new_item: "%{item}の追加"
+        back_to_items: "%{item}の一覧へ戻る"
+        show_this_item: "この%{item}の詳細を見る"
+        edit_this_item: "この%{item}を編集する"
+        destroy_this_item: "この%{item}を削除する"
