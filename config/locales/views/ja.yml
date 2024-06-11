@@ -2,6 +2,7 @@ ja:
   common:
     title:
       edit: "%{model}の編集"
+      new: "新規%{model}"
     link:
       new: "%{model}の追加"
       back: "%{model}の一覧へ戻る"

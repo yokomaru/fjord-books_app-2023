@@ -2,6 +2,7 @@ en:
   common:
     title:
       edit: "Editing %{model}"
+      new: "New %{model}"
     link:
       new: "New %{model}"
       back: "Back to %{model}s"
