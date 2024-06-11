@@ -1,4 +1,3 @@
----
 ja:
   activerecord:
     models:
@@ -9,3 +8,10 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+  common:
+    create:
+      success: "%{model}の作成に成功しました"
+    update:
+      success: "%{model}の更新に成功しました"
+    destroy:
+      success: "%{model}の削除に成功しました"

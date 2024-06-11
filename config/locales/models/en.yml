@@ -1,4 +1,3 @@
----
 en:
   activerecord:
     models:
@@ -9,3 +8,10 @@ en:
         memo: Memo
         author: Author
         picture: Picture
+  common:
+    create:
+      success: "%{model} was successfully created."
+    update:
+      success: "%{model} was successfully updated."
+    destroy:
+      success: "%{model} was successfully destroyed."
