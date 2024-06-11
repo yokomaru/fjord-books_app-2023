@@ -7,10 +7,10 @@
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t(:show_this_book), book %>
+        <%= link_to t('views.common.link.show_this_item', item: Book.model_name.human), book %>
       </p>
     </div>
   <% end %>
 </div>
 
-<%= link_to t(:new_book), new_book_path %>
+<%= link_to t('views.common.link.new_item', item: Book.model_name.human), new_book_path %>
