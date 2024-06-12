@@ -37,6 +37,3 @@
 /public/uploads
 
 .env
-
-# Ignore VSCode setting
-.vscode/launch.json
