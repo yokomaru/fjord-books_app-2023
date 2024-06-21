@@ -1,0 +1,14 @@
+ja:
+  books:
+    index:
+      title: "%{model}"
+      show: "Show This %{model}"
+      new: "New %{model}"
+    show:
+      edit: "Edit This %{model}"
+      destroy: "Destroy This %{model}"
+    edit:
+      title: "Editing %{model}"
+      show: "Show This %{model}"
+    new:
+      title: "New %{model}"

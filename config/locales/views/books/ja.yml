@@ -1,0 +1,14 @@
+ja:
+  books:
+    index:
+      title: "%{model}"
+      show: "この%{model}の詳細を見る"
+      new: "新規%{model}の追加"
+    show:
+      edit: "この%{model}を編集する"
+      destroy: "この%{model}を削除する"
+    edit:
+      title: "%{model}の編集"
+      show: "この%{model}の詳細を見る"
+    new:
+      title: "新規%{model}"

@@ -1,11 +1,4 @@
 en:
-  common:
-    title:
-      edit: "Editing %{model}"
-      new: "New %{model}"
-    link:
-      new: "New %{model}"
+  views:
+    common:
       back: "Back to %{model}s"
-      show: "Show This %{model}"
-      edit: "Edit This %{model}"
-      destroy: "Destroy This %{model}"
