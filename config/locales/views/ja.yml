@@ -3,3 +3,5 @@ ja:
     common:
       show: "この%{model}の詳細を見る"
       back: "%{model}の一覧へ戻る"
+      japanese: 日本語
+      english: 英語

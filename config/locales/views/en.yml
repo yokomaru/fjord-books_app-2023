@@ -3,3 +3,5 @@ en:
     common:
       show: "Show This %{model}"
       back: "Back to %{model}s"
+      japanese: Japanese
+      english: English
