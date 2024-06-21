@@ -7,7 +7,7 @@
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t('.show', model: Book.model_name.human), book %>
+        <%= link_to t('views.common.show', model: Book.model_name.human), book %>
       </p>
     </div>
   <% end %>

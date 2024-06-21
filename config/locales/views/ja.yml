@@ -1,4 +1,5 @@
 ja:
   views:
     common:
+      show: "この%{model}の詳細を見る"
       back: "%{model}の一覧へ戻る"
