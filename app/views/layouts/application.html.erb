@@ -12,9 +12,15 @@
 
   <header>
     <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
+      <%= link_to  t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
+      <%= link_to t('views.common.title_edit', name: User.model_name.human), edit_user_registration_path %>
+    <%- if controller_name != 'books' %>
+      <%= link_to t('views.common.title_index', name: Book.model_name.human), books_path %><br />
+    <% end %>
+    <%- if controller_name != 'users' %>
+      <%= link_to t('views.common.title_index', name: User.model_name.human), users_path %><br />
+    <% end %>
+
     <% end %>
   </header>
 
