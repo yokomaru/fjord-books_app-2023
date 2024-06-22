@@ -10,26 +10,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <header>
-    <% if user_signed_in? %>
-      <%= link_to  t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
-      <%= link_to t('views.common.title_edit', name: User.model_name.human), edit_user_registration_path %>
-    <%- if controller_name != 'books' %>
-      <%= link_to t('views.common.title_index', name: Book.model_name.human), books_path %><br />
-    <% end %>
-    <%- if controller_name != 'users' %>
-      <%= link_to t('views.common.title_index', name: User.model_name.human), users_path %><br />
-    <% end %>
+  <%= render 'shared/header' %>
+  <%= render 'shared/flash_message' %>
 
-    <% end %>
-  </header>
-
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
   <body class="<%= params[:action] %>">
     <%= yield %>
   </body>
