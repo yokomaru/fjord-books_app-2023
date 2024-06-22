@@ -10,6 +10,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
   <body class="<%= params[:action] %>">
     <%= yield %>
   </body>
