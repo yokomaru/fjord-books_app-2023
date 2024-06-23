@@ -1,1 +1,1 @@
-json.array! @books, partial: "books/book", as: :book
+json.array! @users, partial: "users/user", as: :user
