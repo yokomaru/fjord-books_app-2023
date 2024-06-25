@@ -1,0 +1,12 @@
+en:
+  books:
+    index:
+      title: "%{model}"
+      new: "New %{model}"
+    show:
+      edit: "Edit This %{model}"
+      destroy: "Destroy This %{model}"
+    edit:
+      title: "Editing %{model}"
+    new:
+      title: "New %{model}"
