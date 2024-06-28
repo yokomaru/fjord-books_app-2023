@@ -1,4 +1,10 @@
 <div class="field">
+  <%= f.label :icon %><br />
+  <%= image_tag @user.icon.variant(:preview) if @user.icon_atacched? %><br />
+  <%= f.file_field :icon , accept: 'image/png,image/gif,image/jpeg' %>
+</div>
+
+<div class="field">
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </div>
