@@ -20,7 +20,8 @@ class User < ApplicationRecord
   private
 
   def icon_type
-    return if icon_atacched? && icon.blob.content_type.in?(%('image/jpeg image/png image/gif'))
+    extention = %('image/jpeg image/png image/gif')
+    return if icon_atacched? && icon.blob.content_type.in?(extention)
 
     errors.add(:icon, 'はjpegまたはpngまたはgif形式でアップロードしてください')
   end
