@@ -1,10 +1,5 @@
 <div id="<%= dom_id report %>">
   <p>
-    <strong><%= Report.human_attribute_name(:user) %>:</strong>
-    <%= report.user_id %>
-  </p>
-
-  <p>
     <strong><%= Report.human_attribute_name(:title) %>:</strong>
     <%= report.title %>
   </p>
@@ -12,6 +7,11 @@
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
     <%= report.content %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:user) %>:</strong>
+    <%= current_user_name(report.user) %>
   </p>
 
   <p>
