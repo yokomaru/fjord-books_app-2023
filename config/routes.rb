@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :reports
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users
   root to: 'books#index'
-  resources :books
+  resources :comments
+  resources :books do
+    resources :comments, controller: 'books/comments'
+  end
+  resources :reports
   resources :users, only: %i(index show)
 end
