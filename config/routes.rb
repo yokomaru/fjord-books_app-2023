@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments, controller: 'books/comments'
   end
-  resources :reports
+  resources :reports do
+    resources :comments, controller: 'reports/comments'
+  end
   resources :users, only: %i(index show)
 end
