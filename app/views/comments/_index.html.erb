@@ -1,0 +1,23 @@
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Comment.model_name.human)) %></h1>
+
+<div id="comments" class="comment-index-items">
+  <% if comments.present? %>
+    <% comments.each do |comment| %>
+      <% if comment.persisted? %>
+        <div class="index-item">
+          <%= render "comments/comment", comment: comment %>
+          <% if comment.user == current_user %>
+            <p>
+              <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_comment_path(comment) %>
+            </p>
+            <p>
+              <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= "コメントはありません" %>
+  <% end %>
+</div>
