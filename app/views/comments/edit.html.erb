@@ -5,5 +5,5 @@
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), controller: @comment.commentable.model_name.plural, action: :show, id: @comment.commentable.id %>
+  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), polymorphic_path(@comment.commentable) %>
 </nav>
