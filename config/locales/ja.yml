@@ -202,6 +202,8 @@ ja:
       previous: '‹ 前'
       next: '次 ›'
       truncate: '…'
+    comment:
+      not_exist: コメントはありません
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
