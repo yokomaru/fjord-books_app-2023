@@ -16,7 +16,7 @@
 
   <p>
     <strong><%= Comment.human_attribute_name(:content) %>:</strong>
-    <%= comment.content %>
+    <%= simple_format(h(comment.content)) %>
   </p>
 
 </div>

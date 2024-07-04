@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%= report.content %>
+    <%= simple_format(h(report.content)) %>
   </p>
 
   <p>
