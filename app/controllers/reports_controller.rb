@@ -5,14 +5,14 @@ class ReportsController < ApplicationController
 
   # GET /reports or /reports.json
   def index
-    @reports = Report.order(:id).page(params[:page])
+    @reports = Report.preload(:user).order(:id).page(params[:page])
   end
 
   # GET /reports/1 or /reports/1.json
   def show
     @report = Report.find(params[:id])
-    @commentable = @report
-    @comment = @commentable.comments.new
+    @comments = @report.comments.preload(:user)
+    @comment = @report.comments.new
   end
 
   # GET /reports/new

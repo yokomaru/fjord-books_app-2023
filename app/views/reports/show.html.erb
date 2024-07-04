@@ -4,8 +4,10 @@
   <%= render 'reports/report', report: @report %>
 </div>
 
-<%= render "comments/index", commentable: @report, comments: @report.comments %>
-<%= render "comments/form", comment: @comment %>
+<%= render "comments/index", commentable: @report, comments: @comments %>
+<%= form_with(model: [@report, @comment]) do |form| %>
+  <%= render "comments/form", form: form, comment: @comment %>
+<% end %>
 
 <nav class="page-nav">
   <% if @report.user == current_user %>

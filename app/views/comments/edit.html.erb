@@ -1,6 +1,8 @@
 <h1><%= t('views.common.title_edit', name: Comment.model_name.human.downcase) %></h1>
 
-<%= render "comments/form", commentable: @comment.commentable, comment: @comment %>
+<%= form_with(model: @comment) do |form| %>
+  <%= render "comments/form", form: form, comment: @comment %>
+<% end %>
 
 <br>
 

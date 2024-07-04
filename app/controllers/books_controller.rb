@@ -10,8 +10,8 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
-    @commentable = @book
-    @comment = @commentable.comments.new
+    @comments = @book.comments.preload(:user)
+    @comment = @book.comments.new
   end
 
   # GET /books/new
