@@ -33,12 +33,32 @@ Book.create!(
   picture: picture_file('erd.jpg')
 )
 
+User.destroy_all
+
+User.create!(
+  email: 'example@example.com',
+  password: 'test1234TEST',
+  password_confirmation: 'test1234TEST',
+  zipcode: Faker::Lorem.characters(number: 7, min_numeric: 7),
+  address: Faker::Address.full_address,
+  introduction: Faker::Lorem.paragraph(sentence_count: 7)
+)
+
 50.times do
   Book.create!(
     title: Faker::Book.title,
     memo: Faker::Book.genre,
     author: Faker::Book.author,
     picture: picture_file('no-image.png')
+  )
+
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'test1234TEST',
+    password_confirmation: 'test1234TEST',
+    zipcode: Faker::Lorem.characters(number: 7, min_numeric: 7),
+    address: Faker::Address.full_address,
+    introduction: Faker::Lorem.paragraph(sentence_count: 7)
   )
 end
 

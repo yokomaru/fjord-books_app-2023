@@ -10,6 +10,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <%= render 'shared/header' %>
+  <%= render 'shared/flash_message' %>
+
   <body class="<%= params[:action] %>">
     <%= yield %>
   </body>

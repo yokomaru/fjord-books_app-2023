@@ -2,10 +2,19 @@ en:
   activerecord:
     models:
       book: Book
-
+      user: User
     attributes:
       book:
         author: Author
         memo: Memo
         picture: Picture
         title: Title
+      user:
+        email: Email
+        address: Address
+        zipcode: ZipCode
+        introduction: Introduction
+        encrypted_password: EncryptPassword
+        remember_created_at: RememberCreatedAt
+        reset_password_sent_at: ResetPasswordSentAt
+        reset_password_token: ResetPasswordToken
