@@ -5,6 +5,7 @@ class Reports::CommentsController < ApplicationController
     @report = Report.find(params[:report_id])
     @comment = @report.comments.new(comment_params)
     @comment.user_id = current_user.id
+
     if @comment.save
       redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else

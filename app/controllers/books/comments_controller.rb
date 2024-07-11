@@ -5,6 +5,7 @@ class Books::CommentsController < ApplicationController
     @book = Book.find(params[:book_id])
     @comment = @book.comments.new(comment_params)
     @comment.user_id = current_user.id
+
     if @comment.save
       redirect_to book_url(@book), notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
