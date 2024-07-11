@@ -1,0 +1,23 @@
+<div class="mentioned-reports-container">
+  <strong><%= Mention.model_name.human %>:</strong>
+  <% if reports.present? %>
+    <ul>
+      <p>
+        <%= t('.this_article_is_linked_from') %>
+      </p>
+      <% reports.preload(user: :avatar_attachment).each do |report| %>
+      <li>
+        <% if report.user.avatar.attached? %>
+          <%= image_tag report.user.avatar.variant(:icon) %>
+        <% end %>
+        <%= link_to report.title, report_path(report.id), target: :_blank, rel: "noopener noreferrer" %>
+        <small>
+          <%= display_time_difference_between_now_and_created_at(report.created_at) %>
+        </small>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    (<%= t('.no_mentions') %>)
+  <% end %>
+</div>
