@@ -6,12 +6,10 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to polymorphic_url(@comment.commentable), notice: t('controllers.common.notice_update', name: Comment.model_name.human) }
-      else
-        format.html { render 'comments/edit', id: params[:id], status: :unprocessable_entity }
-      end
+    if @comment.update(comment_params)
+      redirect_to polymorphic_url(@comment.commentable), notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      render 'comments/edit', id: params[:id], status: :unprocessable_entity
     end
   end
 
@@ -19,9 +17,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to polymorphic_url(@comment.commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
-    end
+    redirect_to polymorphic_url(@comment.commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
