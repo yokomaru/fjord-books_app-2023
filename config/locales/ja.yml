@@ -219,6 +219,12 @@ ja:
     mentioned_reports:
       no_mentions: 言及はまだありません
       this_article_is_linked_from: この記事は以下の記事からリンクされています
+      seconds_ago: 秒前
+      minutes_ago: 分前
+      hours_ago: 時間前
+      days_ago: 日前
+      months_ago: 月前
+      years_ago: 月前
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:

@@ -12,7 +12,7 @@
         <% end %>
         <%= link_to report.title, report_path(report.id), target: :_blank, rel: "noopener noreferrer" %>
         <small>
-          <%= display_time_difference_between_now_and_created_at(report.created_at) %>
+          <%= display_passed_time(report.created_at) %>
         </small>
       </li>
       <% end %>
