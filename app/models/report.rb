@@ -25,9 +25,8 @@ class Report < ApplicationRecord
       self.mentioning_report_ids = fetch_report_ids(content)
     end
   rescue ActiveRecord::RecordInvalid => e
-    logger.error e.message
-    logger.error e.backtrace.join("\n")
-    errors.add(:report, 'の保存に失敗しました')
+    write_error_logs(e)
+    errors.add(:base, :report_invalid_save_with_mentions)
     false
   end
 
@@ -37,9 +36,8 @@ class Report < ApplicationRecord
       self.mentioning_report_ids = fetch_report_ids(content)
     end
   rescue ActiveRecord::RecordInvalid => e
-    logger.error e.message
-    logger.error e.backtrace.join("\n")
-    errors.add(:report, 'の更新に失敗しました')
+    write_error_logs(e)
+    errors.add(:base, :report_invalid_update_with_mentions)
     false
   end
 
@@ -53,5 +51,10 @@ class Report < ApplicationRecord
       report_id if registered_report_ids.include?(report_id)
     end
     report_ids.compact.uniq
+  end
+
+  def write_error_logs(error)
+    logger.error error.message
+    logger.error error.backtrace.join("\n")
   end
 end

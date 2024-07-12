@@ -7,6 +7,8 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        report_invalid_save_with_mentions: 日報への言及の保存に失敗しました
+        report_invalid_update_with_mentions: 日報への言及の保存に失敗しました
   date:
     abbr_day_names:
     - 日
