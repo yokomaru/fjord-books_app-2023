@@ -11,6 +11,8 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  FORMAT_REPORT_URL = %r{http://localhost:3000/reports/(\d+)/?}
+
   def editable?(target_user)
     user == target_user
   end
@@ -45,9 +47,7 @@ class Report < ApplicationRecord
 
   def fetch_report_ids(content)
     registered_report_ids = Report.all.ids
-    report_ids = URI.extract(content).map do |url|
-      matched_report = url.match(%r{http://localhost:3000/reports/(\d+)(/|$)})
-      report_id = matched_report[1].to_i if matched_report.present?
+    report_ids = content.scan(FORMAT_REPORT_URL).flatten.map(&:to_i).map do |report_id|
       report_id if registered_report_ids.include?(report_id)
     end
     report_ids.compact.uniq
