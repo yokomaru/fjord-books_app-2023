@@ -1,8 +1,13 @@
 <h1><%= t('views.common.title_show', name: Book.model_name.human) %></h1>
 
 <div class="show-item">
-  <%= render @book %>
+  <%= render "books/book", book: @book %>
 </div>
+
+<%= render "comments/index", commentable: @book, comments: @comments %>
+<%= form_with(model: [@book, @comment]) do |form| %>
+  <%= render "comments/form", form: form, comment: @comment %>
+<% end %>
 
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |

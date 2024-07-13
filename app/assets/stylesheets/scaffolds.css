@@ -172,6 +172,14 @@ Index
   margin-bottom: var(--nav-mt);
 }
 
+.comment-index-items {
+  display: grid;
+  gap: var(--global-block-gap);
+  font-size: var(--global-fz-sm);
+  line-height: var(--global-lh);
+  margin-bottom: var(--nav-mt);
+}
+
 .index-item {
   border: solid var(--global-bw) var(--global-bc);
   padding: 16px;

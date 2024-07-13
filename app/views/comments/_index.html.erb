@@ -1,0 +1,14 @@
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Comment.model_name.human)) %></h1>
+
+<div id="comments" class="comment-index-items">
+  <% if comments.present? %>
+    <% comments.each do |comment| %>
+      <div class="index-item">
+        <%= render "comments/comment", comment: comment %>
+        <%= render "comments/buttons", comment: comment %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= t('.no_comments') %>
+  <% end %>
+</div>

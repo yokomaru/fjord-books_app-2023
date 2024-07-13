@@ -1,0 +1,14 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<div class="show-item">
+  <%= render "reports/report", report: @report %>
+</div>
+
+<%= render "comments/index", commentable: @report, comments: @comments %>
+<%= form_with(model: [@report, @comment]) do |form| %>
+  <%= render "comments/form", form: form, comment: @comment %>
+<% end %>
+
+<nav class="page-nav">
+  <%= render "reports/buttons", report: @report %>
+</nav>

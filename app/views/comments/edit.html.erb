@@ -1,0 +1,11 @@
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human.downcase) %></h1>
+
+<%= form_with(model: @comment) do |form| %>
+  <%= render "comments/form", form: form, comment: @comment %>
+<% end %>
+
+<br>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), polymorphic_path(@comment.commentable) %>
+</nav>
