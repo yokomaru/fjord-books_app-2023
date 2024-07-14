@@ -43,6 +43,10 @@ class Report < ApplicationRecord
     false
   end
 
+  def mentioning_time(report)
+    mentioning_relations.find { |relation| relation.mentioned_report_id == report.id }.created_at
+  end
+
   private
 
   def fetch_report_ids(content)
