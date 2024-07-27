@@ -14,7 +14,7 @@
           <%= link_to mentioned_report.title, report_path(mentioned_report.id), target: :_blank, rel: "noopener noreferrer" %>
         </b>
         <small>
-          <%= display_passed_time(mentioned_report.mentioning_time(report)) %>
+          <%= "#{time_ago_in_words(mentioned_report.mentioning_time(report))}#{t('views.common.ago')}" %>
         </small>
       </li>
       <% end %>
