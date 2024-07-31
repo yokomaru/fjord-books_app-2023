@@ -13,26 +13,18 @@ class Report < ApplicationRecord
 
   FORMAT_REPORT_URL = %r{http://localhost:3000/reports/(\d+)/?}
 
+  after_save :save_mentions
+
+  def save_mentions
+    self.mentioning_report_ids = fetch_report_ids(content)
+  end
+
   def editable?(target_user)
     user == target_user
   end
 
   def created_on
     created_at.to_date
-  end
-
-  def save_with_mentions
-    Report.transaction do
-      save!
-      self.mentioning_report_ids = fetch_report_ids(content)
-    end
-  end
-
-  def update_with_mentions(params)
-    Report.transaction do
-      update!(params)
-      self.mentioning_report_ids = fetch_report_ids(content)
-    end
   end
 
   def mentioning_time(report)
