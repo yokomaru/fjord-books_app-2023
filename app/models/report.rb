@@ -26,10 +26,6 @@ class Report < ApplicationRecord
       save!
       self.mentioning_report_ids = fetch_report_ids(content)
     end
-  rescue ActiveRecord::RecordInvalid => e
-    write_error_logs(e)
-    errors.add(:base, :report_invalid_save_with_mentions)
-    false
   end
 
   def update_with_mentions(params)
@@ -37,10 +33,6 @@ class Report < ApplicationRecord
       update!(params)
       self.mentioning_report_ids = fetch_report_ids(content)
     end
-  rescue ActiveRecord::RecordInvalid => e
-    write_error_logs(e)
-    errors.add(:base, :report_invalid_update_with_mentions)
-    false
   end
 
   def mentioning_time(report)
@@ -55,10 +47,5 @@ class Report < ApplicationRecord
       id = report_id.to_i
       id if registered_report_ids.include?(id)
     end
-  end
-
-  def write_error_logs(error)
-    logger.error error.message
-    logger.error error.backtrace.join("\n")
   end
 end
