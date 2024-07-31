@@ -34,10 +34,10 @@ class Report < ApplicationRecord
   private
 
   def fetch_report_ids(content)
-    registered_report_ids = Report.all.ids
-    content.scan(FORMAT_REPORT_URL).flatten.uniq.filter_map do |report_id|
-      id = report_id.to_i
-      id if registered_report_ids.include?(id)
+    registered_report_ids = Report.ids
+    content.scan(FORMAT_REPORT_URL).flatten.uniq.filter_map do |mentioning_id|
+      report_id = mentioning_id.to_i
+      report_id if registered_report_ids.include?(report_id) && report_id != id
     end
   end
 end
