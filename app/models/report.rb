@@ -51,10 +51,10 @@ class Report < ApplicationRecord
 
   def fetch_report_ids(content)
     registered_report_ids = Report.all.ids
-    report_ids = content.scan(FORMAT_REPORT_URL).flatten.map(&:to_i).map do |report_id|
-      report_id if registered_report_ids.include?(report_id)
+    content.scan(FORMAT_REPORT_URL).flatten.uniq.filter_map do |report_id|
+      id = report_id.to_i
+      id if registered_report_ids.include?(id)
     end
-    report_ids.compact.uniq
   end
 
   def write_error_logs(error)
