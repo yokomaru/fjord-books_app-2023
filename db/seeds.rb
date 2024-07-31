@@ -128,6 +128,23 @@ Report.transaction do
   end
 end
 
+mentions = <<~TEXT.lines(chomp: true)
+  http://localhost:3000/reports/46
+  http://localhost:3000/reports/47
+  http://localhost:3000/reports/48
+  http://localhost:3000/reports/49
+  http://localhost:3000/reports/50
+TEXT
+
+Report.transaction do
+  reports = Report.where(id: 51..55).order(id: :asc)
+  reports.each do |report|
+    mentions_length = [*1..2].sample
+    report.content = [report.content, [mentions.sample(mentions_length).join("\n")]].join("\n")
+    report.save_with_mentions
+  end
+end
+
 # dependent: :destroy で全件削除されているはずだが念のため
 Comment.destroy_all
 

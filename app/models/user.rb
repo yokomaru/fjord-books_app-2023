@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [150, 150]
+    attachable.variant :icon, resize_to_limit: [16, 16]
   end
 
   def name_or_email

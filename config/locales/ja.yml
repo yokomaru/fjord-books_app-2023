@@ -7,6 +7,8 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        report_invalid_save_with_mentions: 日報への言及の保存に失敗しました
+        report_invalid_update_with_mentions: 日報への言及の保存に失敗しました
   date:
     abbr_day_names:
     - 日
@@ -196,6 +198,7 @@ ja:
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
+      ago: "前"
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -216,6 +219,9 @@ ja:
       create: コメントする
       delete: 削除
       no_comments: コメントはまだありません
+    mentioned_reports:
+      no_mentions: 言及はまだありません
+      this_article_is_linked_from: この記事は以下の記事からリンクされています
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:

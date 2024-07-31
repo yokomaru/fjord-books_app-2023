@@ -1,0 +1,45 @@
+/****************
+mentioned-reports-container
+****************/
+
+.mentioned-reports-container {
+  margin-top: 10px;
+  max-width: var(--single-column-w);
+}
+
+.mentioned-reports-container p {
+  font-size: var(--global-fz-md);
+  line-height: 1.8;
+}
+
+.mentioned-reports-container ul {
+  margin: 12px 0 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.mentioned-reports-container li {
+  padding-bottom: 12px;
+  font-size: var(--global-fz-md);
+  line-height: 1.8;
+}
+
+.mentioned-reports-container li:not(:first-of-type) {
+  padding-top: 12px;
+}
+
+.mentioned-reports-container li:last-of-type {
+  padding-bottom: 0;
+}
+
+.mentioned-reports-container li small {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.mentioned-reports-container img {
+  width: 16px;
+  height: 16px;
+  object-fit: cover; /* 縦横比維持しつつトリミング */
+  border-radius: 50%;
+}

@@ -5,6 +5,7 @@
 </div>
 
 <%= render 'shared/comments', commentable: @report %>
+<%= render 'shared/mentioned_reports', report: @report, mentioned_reports: @mentioned_reports %>
 
 <nav class="page-nav">
   <% if @report.editable?(current_user) %>

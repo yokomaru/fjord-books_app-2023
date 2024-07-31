@@ -1,0 +1,25 @@
+<div class="mentioned-reports-container">
+  <strong><%= Mention.model_name.human %>:</strong>
+  <% if mentioned_reports.present? %>
+    <ul>
+      <p>
+        <%= t('.this_article_is_linked_from') %>
+      </p>
+      <% mentioned_reports.each do |mentioned_report| %>
+      <li>
+        <% if mentioned_report.user.avatar.attached? %>
+          <%= image_tag mentioned_report.user.avatar.variant(:icon) %>
+        <% end %>
+        <b>
+          <%= link_to mentioned_report.title, report_path(mentioned_report.id), target: :_blank, rel: "noopener noreferrer" %>
+        </b>
+        <small>
+          <%= "#{time_ago_in_words(mentioned_report.mentioning_time(report))}#{t('views.common.ago')}" %>
+        </small>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    (<%= t('.no_mentions') %>)
+  <% end %>
+</div>

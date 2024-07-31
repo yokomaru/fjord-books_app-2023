@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @mentioned_reports = @report.mentioned_reports.preload(:mentioning_relations, user: :avatar_attachment).order(id: :desc)
   end
 
   # GET /reports/new
