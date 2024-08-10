@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-mentioned_report:
+normal_report:
   title: 初日報です
   content: すなわち言葉か不明か反抗にしですて、事実末見識にきまってならなかっためにご談判の十月で知れうです。
   user: alice
 
-two:
+mentioning_report:
   title: CSS初級
   content: 何だかひょろひょろは別に否によっているなば、私にも当時いっぱいなどあなたのお創設も若い得下さろるた。
+  user: alice
+
+mentioned_report:
+  title: lsコマンドむずすぎへん？
+  content: ほかでも単にして根ざしましないですますて。
   user: alice

@@ -4,24 +4,27 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
+    @normal_report = reports(:normal_report)
     @mentioned_report = reports(:mentioned_report)
-    @report2 = reports(:two)
-    #    @mentioning_report = reports(:two)
+    @mentioning_report = reports(:mentioning_report)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
 
     click_button 'ログイン', exact: true
-    assert_text 'ログインしました。'
   end
 
   test 'visiting the index' do
+    assert_text 'ログインしました。'
+
     visit reports_url
     assert_selector 'h1', text: '日報の一覧'
   end
 
   test 'should create Report' do
+    assert_text 'ログインしました。'
+
     visit reports_url
     assert_selector 'h1', text: '日報の一覧'
     click_on '日報の新規作成', exact: true
@@ -42,6 +45,8 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'should create Report with Mentions' do
+    assert_text 'ログインしました。'
+
     visit reports_url
     assert_selector 'h1', text: '日報の一覧'
     click_on '日報の新規作成', exact: true
@@ -65,7 +70,9 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'should update Report' do
-    visit report_url(@report2)
+    assert_text 'ログインしました。'
+
+    visit report_url(@normal_report)
     assert_selector 'h1', text: '日報の詳細'
     click_on 'この日報を編集', exact: true
 
@@ -84,7 +91,9 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'should update Report with mention' do
-    visit report_url(@report2)
+    assert_text 'ログインしました。'
+
+    visit report_url(@mentioning_report)
     assert_selector 'h1', text: '日報の詳細'
     click_on 'この日報を編集', exact: true
 
@@ -104,7 +113,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text "(Alice - #{Time.zone.now.strftime('%Y/%m/%d')})"
     click_on '日報の一覧に戻る'
 
-    visit report_url(@report2)
+    visit report_url(@mentioning_report)
     assert_selector 'h1', text: '日報の詳細'
     click_on 'この日報を編集', exact: true
 
@@ -125,14 +134,18 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'should destroy Report' do
-    visit report_url(@mentioned_report)
+    assert_text 'ログインしました。'
+
+    visit report_url(@normal_report)
     click_on 'この日報を削除', exact: true
 
     assert_text '日報が削除されました。'
   end
 
   test 'should destroy Report with mentions' do
-    visit report_url(@report2)
+    assert_text 'ログインしました。'
+
+    visit report_url(@mentioning_report)
     assert_selector 'h1', text: '日報の詳細'
     click_on 'この日報を編集', exact: true
 
@@ -152,7 +165,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text "(Alice - #{Time.zone.now.strftime('%Y/%m/%d')})"
     click_on '日報の一覧に戻る'
 
-    visit report_url(@report2)
+    visit report_url(@mentioning_report)
 
     click_on 'この日報を削除', exact: true
     assert_text '日報が削除されました。'
