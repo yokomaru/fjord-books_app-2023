@@ -87,7 +87,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報の一覧に戻る'
   end
 
-  test 'should update Report with mention' do
+  test 'should update Report with Mention' do
     assert_text 'ログインしました。'
 
     visit report_url(@mentioning_report)
@@ -137,7 +137,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が削除されました。'
   end
 
-  test 'should destroy Report with mentions' do
+  test 'should destroy Report with Mentions' do
     assert_text 'ログインしました。'
 
     visit report_url(@mentioning_report)
