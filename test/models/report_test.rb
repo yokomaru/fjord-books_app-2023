@@ -18,6 +18,6 @@ class ReportTest < ActiveSupport::TestCase
   test '#created_on' do
     user = User.create!(email: 'foo@example.com', name: 'Foo', password: 'password')
     report = user.reports.create!(title: 'title', content: 'content')
-    assert_equal Time.now.to_date, report.created_on
+    assert_equal Time.zone.now.to_date, report.created_on
   end
 end

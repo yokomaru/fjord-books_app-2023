@@ -36,7 +36,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報を作成'
     assert_text '日報を作成しました。'
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
     assert_text '（この日報に言及している日報はまだありません）'
     click_on '日報の一覧に戻る'
   end
@@ -56,11 +56,11 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text 'メンション付きの日報を作成'
     assert_text "メンション付きの日報を作成しました。http://localhost:3000/reports/#{@mentioned_report.id}"
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
 
     visit report_url(@mentioned_report.id)
     assert_text 'メンション付きの日報を作成'
-    assert_text "(Alice - #{Time.now.strftime('%Y/%m/%d')})"
+    assert_text "(Alice - #{Time.zone.now.strftime('%Y/%m/%d')})"
     click_on '日報の一覧に戻る'
   end
 
@@ -78,7 +78,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報を更新'
     assert_text '日報を更新しました。'
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
     assert_text '（この日報に言及している日報はまだありません）'
     click_on '日報の一覧に戻る'
   end
@@ -97,11 +97,11 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報をメンションありで更新'
     assert_text "メンション付きの日報を作成しました。http://localhost:3000/reports/#{@mentioned_report.id}"
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
 
     visit report_url(@mentioned_report.id)
     assert_text '日報をメンションありで更新'
-    assert_text "(Alice - #{Time.now.strftime('%Y/%m/%d')})"
+    assert_text "(Alice - #{Time.zone.now.strftime('%Y/%m/%d')})"
     click_on '日報の一覧に戻る'
 
     visit report_url(@report2)
@@ -117,7 +117,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報をメンションなしで更新'
     assert_text 'メンション部分を削除して更新しました。'
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
 
     visit report_url(@mentioned_report.id)
     assert_text '（この日報に言及している日報はまだありません）'
@@ -145,11 +145,11 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報をメンションありで更新'
     assert_text "メンション付きの日報を作成しました。http://localhost:3000/reports/#{@mentioned_report.id}"
     assert_text 'Alice'
-    assert_text Time.now.strftime('%Y/%m/%d')
+    assert_text Time.zone.now.strftime('%Y/%m/%d')
 
     visit report_url(@mentioned_report.id)
     assert_text '日報をメンションありで更新'
-    assert_text "(Alice - #{Time.now.strftime('%Y/%m/%d')})"
+    assert_text "(Alice - #{Time.zone.now.strftime('%Y/%m/%d')})"
     click_on '日報の一覧に戻る'
 
     visit report_url(@report2)
