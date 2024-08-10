@@ -11,7 +11,6 @@ class ReportsTest < ApplicationSystemTestCase
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
-
     click_button 'ログイン', exact: true
   end
 
@@ -27,12 +26,11 @@ class ReportsTest < ApplicationSystemTestCase
 
     visit reports_url
     assert_selector 'h1', text: '日報の一覧'
+
     click_on '日報の新規作成', exact: true
     assert_selector 'h1', text: '日報の新規作成'
-
     fill_in 'タイトル', with: '日報を作成'
     fill_in '内容', with: '日報を作成しました。'
-
     click_on '登録する'
 
     assert_text '日報が作成されました。'
@@ -78,7 +76,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'タイトル', with: '日報を更新'
     fill_in '内容', with: '日報を更新しました。'
-
     click_on '更新する'
 
     assert_text '日報が更新されました。'
@@ -99,7 +96,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'タイトル', with: '日報をメンションありで更新'
     fill_in '内容', with: "メンション付きの日報を作成しました。http://localhost:3000/reports/#{@mentioned_report.id}"
-
     click_on '更新する'
 
     assert_text '日報が更新されました。'
@@ -119,7 +115,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'タイトル', with: '日報をメンションなしで更新'
     fill_in '内容', with: 'メンション部分を削除して更新しました。'
-
     click_on '更新する'
 
     assert_text '日報が更新されました。'
@@ -151,7 +146,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'タイトル', with: '日報をメンションありで更新'
     fill_in '内容', with: "メンション付きの日報を作成しました。http://localhost:3000/reports/#{@mentioned_report.id}"
-
     click_on '更新する'
 
     assert_text '日報が更新されました。'
@@ -166,7 +160,6 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '日報の一覧に戻る'
 
     visit report_url(@mentioning_report)
-
     click_on 'この日報を削除', exact: true
     assert_text '日報が削除されました。'
 
